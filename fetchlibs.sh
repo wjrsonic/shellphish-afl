@@ -34,10 +34,11 @@ fetcharch() {
 
   if [ $DISTRO == "ubuntu" ]; then
     KEYRING=$UBUNTU_KEYRING
-    MIRRORS="$DEF_MIRROR"
+    MIRRORS="${DEF_MIRROR/http*com/http://mirrors.ustc.edu.cn}"
+
   elif [ $DISTRO == "debian" ]; then
     KEYRING=$DEBIAN_KEYRING
-    MIRRORS="http://ftp.us.debian.org/debian"
+    MIRRORS="http://mirrors.ustc.edu.cn/debian"
   else
     echo "need a distro"
     exit 1
